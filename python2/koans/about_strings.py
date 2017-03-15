@@ -26,7 +26,6 @@ class AboutStrings(Koan):
         string = r"Konnichi wa, world!"
         self.assertEqual(True, isinstance(string, basestring))
 
-
     def test_use_single_quotes_to_create_string_with_double_quotes(self):
         string = 'He said, "Go Away."'
         self.assertEqual(True,isinstance(string, basestring))
@@ -52,29 +51,28 @@ world!
 """
         self.assertEqual(15, len(string))
 
-
     def test_triple_quoted_strings_need_less_escaping(self):
         a = "Hello \"world\"."
         b = """Hello "world"."""
-        self.assertEqual(__, (a == b))
+        self.assertEqual(True, (a == b))
 
     def test_escaping_quotes_at_the_end_of_triple_quoted_string(self):
         string = """Hello "world\""""
-        self.assertEqual(__, string)
+        self.assertEqual('Hello "world"', string)
 
     def test_plus_concatenates_strings(self):
         string = "Hello, " + "world"
-        self.assertEqual(__, string)
+        self.assertEqual("Hello, world", string)
 
     def test_adjacent_strings_are_concatenated_automatically(self):
         string = "Hello" ", " "world"
-        self.assertEqual(__, string)
+        self.assertEqual("Hello, world", string)
 
     def test_plus_will_not_modify_original_strings(self):
         hi = "Hello, "
         there = "world"
         string = hi + there
-        self.assertEqual("Hello", hi)
+        self.assertEqual("Hello, ", hi)
         self.assertEqual("world", there)
 
     def test_plus_equals_will_append_to_end_of_string(self):
